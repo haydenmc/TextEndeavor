@@ -1,0 +1,14 @@
+{
+  "name": "text-endeavor",
+  "version": "0.0.1-alpha0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hayden McAfee <hayden@outlook.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@aspnet/signalr": "^1.0.3"
+  }
+}
