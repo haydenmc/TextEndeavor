@@ -8,7 +8,7 @@ namespace TextEndeavor.Hubs
     {
         public async Task SendCommand(string command)
         {
-            await Clients.Caller.SendAsync("CommandResponse");
+            await Clients.Caller.SendAsync("CommandResponse", $"Command '{command}' received.");
         }
     }
 }

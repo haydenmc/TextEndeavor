@@ -10,6 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "@aspnet/signalr": "^1.0.3",
-    "@types/signalr": "^2.2.35"
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.3",
+    "webpack": "^4.17.1"
   }
 }

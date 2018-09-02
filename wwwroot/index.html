@@ -34,7 +34,7 @@
                 flex-grow: 1;
             }
 
-                main > p {
+                main > output {
                     margin: 0.5em 0;
                 }
 
@@ -64,11 +64,12 @@
         </style>
 
         <script async src="signalr.js"></script>
+        <script defer src="scripts/main.js"></script>
     </head>
     <body>
         <main>
-            <p>Hello world.</p>
-            <p>This is a test.</p>
+            <output>Hello world.</output>
+            <output>This is a test.</output>
             <form>
                 <label>&gt;</label>
                 <input autofocus name="command" type="text">
