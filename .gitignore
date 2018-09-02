@@ -7,5 +7,4 @@ node_modules
 # Build stuff
 [Oo]bj
 [Bb]in
-wwwroot/bundle.js
-wwwroot/bundle.js.map
+wwwroot/**/*.js

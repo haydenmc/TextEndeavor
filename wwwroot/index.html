@@ -1,14 +1,78 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Text Endeavor</title>
+        <meta charset="UTF-8" />
+        <title>🕹 Text Endeavor</title>
         <style>
+            @font-face {
+                font-family: 'White Rabbit';
+                src: url('fonts/WhiteRabbit.woff2') format('woff2'),
+                    url('fonts/WhiteRabbit.woff') format('woff');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            :root {
+                --font-family-console: 'White Rabbit', 'Courier New', 'Courier', monospace;
+                --font-size-console: 28px;
+                --color-console-text: limegreen;
+            }
+
             body {
                 background-color: #000;
+                font-family: var(--font-family-console);
+                color: var(--color-console-text);
+                font-size: var(--font-size-console);
+                display: flex;
+                margin: 0;
             }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                margin: 64px;
+                flex-grow: 1;
+            }
+
+                main > p {
+                    margin: 0.5em 0;
+                }
+
+                main > form {
+                    margin: 0.5em 0;
+                    display: flex;
+                    flex-direction: row;
+                }
+
+                    main > form > label {
+                        margin-right: 4px;
+                    }
+
+                    main > form > input {
+                        border: none;
+                        background: transparent;
+                        font-family: var(--font-family-console);
+                        color: var(--color-console-text);
+                        font-size: var(--font-size-console);
+                        outline: none;
+                        flex-grow: 1;
+                    }
+
+                        main > form > input::-ms-clear {
+                            display: none;
+                        }
         </style>
+
+        <script async src="signalr.js"></script>
     </head>
     <body>
-
+        <main>
+            <p>Hello world.</p>
+            <p>This is a test.</p>
+            <form>
+                <label>&gt;</label>
+                <input autofocus name="command" type="text">
+            </form>
+        </main>
     </body>
 </html>
