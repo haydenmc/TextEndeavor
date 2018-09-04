@@ -6,9 +6,15 @@ namespace TextEndeavor.Hubs
 {
     public class GameHub: Hub
     {
+
+        public override async Task OnConnectedAsync()
+        {
+            await Clients.Caller.SendAsync("CommandResponse", $"You are '{Context.UserIdentifier}'.");
+        }
+
         public async Task SendCommand(string command)
         {
-            await Clients.Caller.SendAsync("CommandResponse", $"Command '{command}' received.");
+            await Clients.All.SendAsync("CommandResponse", $"Command '{command}' received.");
         }
     }
 }

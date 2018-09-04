@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using TextEndeavor.Hubs;
+using TextEndeavor.Middleware;
+using TextEndeavor.Providers;
 
 namespace TextEndeavor
 {
@@ -16,6 +18,16 @@ namespace TextEndeavor
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.MaxValue;
+                options.Cookie.MaxAge = null;
+                options.Cookie.HttpOnly = true;
+            });
+
+            services.AddInMemoryPlayerDataProvider<Guid>();
+
             services.AddSignalR();
         }
 
@@ -27,6 +39,8 @@ namespace TextEndeavor
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
+            app.UseAnonymousId();
             app.UseDefaultFiles();
             app.UseStaticFiles();
             app.UseSignalR(routes => {
